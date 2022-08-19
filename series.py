@@ -26,4 +26,8 @@ def sequences():
         GP = a * (r**(n-1))
         print(f"The {n}th term of the series is {GP}")
 
-sequences()
+print("Let's commence our program")
+boolean = input("Would you like to begin? Y/N: \n --> \t")
+while boolean.upper == "Y":
+  sequences()
+  boolean = input("Do you still want to continue? Y/N: \n --> \t")
