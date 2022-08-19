@@ -1,33 +1,53 @@
-def sequences():
-    series = ["Fibonacci = Fib","Arithmetic Progression = AP", "Geometric Progression = GP"]
-    print("Which of the following series would you like to operate in? \n")
-    for i in range(0,len(series)):
-        print(series[i].title())
-    seq = input("Which of the above would you like to select :  \n --> \t")
-    if seq.title() == "Fib":
-        a = 1/(5**0.5)
-        b = (1 + 5**0.5)
-        c = (1 - 5**0.5)
-        n = int(input("Which term of the series would you like to display: \n --> \t"))
-        fib = int(a * (b**n - c**n)/2**n)
-        print(f"{fib} is the {n}th term of the {seq} series")
-    elif seq.title() == "AP":
-        a = input("What is the first term of your series: \n --> \t")
-        b = input("What is the second term of your series: \n --> \t")
-        d = (b - a)
-        n = int(input("Which term of the series would you like to display: \n --> \t"))
-        AP = a + (n-1)*d
-        print(f"The {n} term of the series is {AP}")
-    elif seq.title() == "GP":
-        a = input("What is the first term of your series: \n --> \t")
-        b = input("What is the second term of your series: \n --> \t")
-        r = (b/a)
-        n = int(input("Which term of the series would you like to display: \n --> \t"))
-        GP = a * (r**(n-1))
-        print(f"The {n}th term of the series is {GP}")
+#Function Defining
+
+def sequences(a):
+    if a == "Y":
+        series = ["Fibonacci = Fib","Arithmetic Progression = AP", "Geometric Progression = GP"]
+        print("Which of the following series would you like to operate in? \n")
+        for i in range(0,len(series)):
+            print(series[i].title())
+
+def fibo(n):
+    a = 1/(5**0.5)
+    b = (1 + 5**0.5)
+    c = (1 - 5**0.5)
+    for n in range(1,(n+1)):
+         fib = int(a * (b**n - c**n)/2**n)
+         print(fib)
+
+def arith(a,b,n):
+    d = (b - a)
+    for n in range(1,(n+1)):
+         e = (n - 1)
+         AP = a + e*d
+         print(AP)
+
+def geo(a,b,n):
+     r = (b/a)
+     for n in range(1,(n+1)):
+         e = (n - 1)
+         GP = a * (r**e)
+         print(GP)
+
+
+#Actual Beginning Of The Program
 
 print("Let's commence our program")
-boolean = input("Would you like to begin? Y/N: \n --> \t")
-while boolean.upper == "Y":
-  sequences()
-  boolean = input("Do you still want to continue? Y/N: \n --> \t")
+yorn = input("Would you like to begin? Y/N: \n --> \t")
+while yorn.title() == "Y":
+      sequences(yorn)
+      seq = input("Which of the above would you like to select :  \n --> \t")
+      if seq.title() == "Fib":
+         n = int(input("Till which term of the series would you like to display: \n --> \t"))
+         fibo(n)
+      elif seq.title() == "Ap":
+         a = float(input("What is the first term of your series: \n --> \t"))
+         b = float(input("What is the second term of your series: \n --> \t"))
+         n = int(input("Till which term of the series would you like to display: \n --> \t"))
+         arith(a,b,n)
+      elif seq.title() == "Gp":
+         a = float(input("What is the first term of your series: \n --> \t"))
+         b = float(input("What is the second term of your series: \n --> \t"))
+         n = int(input("Till which term of the series would you like to display: \n --> \t"))
+         geo(a,b,n)
+      yorn = input("Do you still want to continue? Y/N: \n --> \t")
