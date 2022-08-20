@@ -1,0 +1,19 @@
+#Program to temporary store string without using file handling
+
+pending_assignments = []
+what_assignments = []
+commencing = input("Do you want to start the program Y/N \n --> \t")
+while commencing == "Y":
+        aorl = str(input("Do you want to add or look at the list of assignments? A/L \n --> \t"))
+        while aorl == "A":
+            sub = str(input("Which subject's assignment do you want to add : "))
+            pending_assignments.append(sub)
+            task = str(input(f"What is the task for {sub}: \n --> \t"))
+            what_assignments.append(task)
+            aorl = input("Do you want to add more or look at the assignments or none? A/L/N \n --> \t")
+        while aorl == "L":
+            for pending_assignment in pending_assignments:
+                for what_assignment in what_assignments:
+                    print(f"{pending_assignment} : \n {what_assignment}")
+            aorl = input("Do you want to look at the assignments list again or add more or none? A/L/N \n --> \t")
+        commencing = input("Do you want to continue the program Y/N \n --> \t")
